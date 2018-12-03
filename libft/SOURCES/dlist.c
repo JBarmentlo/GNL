@@ -9,31 +9,19 @@ void    free_dlist(t_dlist **node)
 	int i;
 
 	i = 0;
-	while (i < MEM_SIZE)
-	{
-		free(((*node)->mem)[i]);
-		i++;
-	}
+
+	free((*node)->str);
 	free(*node);
 }
 
 t_dlist *new_dlist(void)
 {
 	t_dlist *new;
-	int     i;
 
 	if(!(new = malloc(sizeof(t_dlist))))
 		return (NULL);
 	(new->mem)[0] = (void*)new->str;
 
-	i = 0;
-	while (i < MEM_SIZE)
-	{
-		(new->mem)[i] = NULL;
-		i++;
-	}
-
-	new->str = NULL;
 	new->next = NULL;
 	new->prev = NULL;
 	return (new);

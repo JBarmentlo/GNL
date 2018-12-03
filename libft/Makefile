@@ -13,18 +13,17 @@ SOURCES= ft_bzero.c ft_memcpy.c ft_putchar.c ft_memccpy.c ft_memset.c \
 		 ft_lstmap.c stralloc.c ft_isspace.c ft_lstcount.c \
 		 ft_memchr.c ft_memcmp.c ft_memmove.c ft_strcat.c ft_strcpy.c \
 		 ft_strdup.c ft_strlen.c ft_strncat.c ft_strncpy.c ft_strlensafe.c \
-		 ft_strequ_nocase.c
+		 ft_strequ_nocase.c dlist.c
 OBJ_FOLDER=out
 OUT=$(addprefix $(OBJ_FOLDER)/,$(SOURCES:.c=.o))
-TESTS=tests/main_test.c $(addprefix tests/,$(SOURCES:.c=_test.c))
 
 all: $(OUT) $(NAME)
 
 $(NAME): $(OUT)
-	ar rc $(NAME) $(OUT)
+	@ar rc $(NAME) $(OUT)
 	ranlib $(NAME)
 
-$(OBJ_FOLDER)/%.o: %.c
+$(OBJ_FOLDER)/%.o: SOURCES/%.c
 	@mkdir -p $(OBJ_FOLDER)
 	gcc $(CFLAGS) -I includes -o $@ -c $<
 
@@ -35,6 +34,3 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
-
-test: all
-	gcc $(CFLAGS) -I . $(TESTS) libft.a
