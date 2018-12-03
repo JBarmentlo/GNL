@@ -74,7 +74,8 @@ char	*make_line(t_dlist **first, size_t line_size, int fd)
 		if (it->id == fd)
 		{
 			line_size -= it->content_size;
-			ft_strncat(out, it->str, it->content_size - (it->str[it->content_size - 1] == '\n'));
+			ft_strncat(out, it->str, it->content_size -
+				(it->str[it->content_size - 1] == '\n'));
 			pop_dlist(&it, first);
 		}
 		it = it->next;
@@ -82,8 +83,6 @@ char	*make_line(t_dlist **first, size_t line_size, int fd)
 	return (out);
 }
 
-
-#include <stdio.h>
 int		get_next_line(const int fd, char **line)
 {
 	static t_dlist	*first = NULL;
@@ -93,7 +92,8 @@ int		get_next_line(const int fd, char **line)
 
 	if (fd < 0 || line == NULL)
 		return (-1);
-	while (!(is_line(&first, fd, 0)) && (red = read(fd, buff, BUFF_SIZE)) && red > 0)
+	while (!(is_line(&first, fd, 0)) &&
+		(red = read(fd, buff, BUFF_SIZE)) && red > 0)
 	{
 		push_back(&first, fd, buff, (size_t)red);
 	}
@@ -101,7 +101,6 @@ int		get_next_line(const int fd, char **line)
 		return (-1);
 	if ((line_size = is_line(&first, fd, 1)))
 	{
-		
 		*line = make_line(&first, line_size, fd);
 		return (1);
 	}

@@ -86,7 +86,4 @@ int					ft_isascii(int c);
 void				ft_putchar(char c);
 void				ft_putstrn(char *str, int n);
 size_t				ft_strlen(const char *str);
-
-
-
 #endif

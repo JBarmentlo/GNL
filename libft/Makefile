@@ -13,7 +13,7 @@ SOURCES= ft_bzero.c ft_memcpy.c ft_putchar.c ft_memccpy.c ft_memset.c \
 		 ft_lstmap.c stralloc.c ft_isspace.c ft_lstcount.c \
 		 ft_memchr.c ft_memcmp.c ft_memmove.c ft_strcat.c ft_strcpy.c \
 		 ft_strdup.c ft_strlen.c ft_strncat.c ft_strncpy.c ft_strlensafe.c \
-		 ft_strequ_nocase.c dlist.c
+		 ft_strequ_nocase.c dlist.c dlist2.c
 OBJ_FOLDER=out
 OUT=$(addprefix $(OBJ_FOLDER)/,$(SOURCES:.c=.o))
 

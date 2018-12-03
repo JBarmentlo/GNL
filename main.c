@@ -16,7 +16,7 @@ int		main()
 
 	fd = open("text", O_RDONLY);
 	get_next_line(fd,line);
-	printf("%s", *line);
+	//printf("%s", *line);
 
 //printf("%zd", read(fd,str, 10));
 }

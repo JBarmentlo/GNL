@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnstr.c                                       :+:      :+:    :+:   */
+/*   dlist2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbarment <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/03 14:03:49 by jbarment          #+#    #+#             */
-/*   Updated: 2018/12/03 14:04:57 by jbarment         ###   ########.fr       */
+/*   Created: 2018/12/03 14:26:12 by jbarment          #+#    #+#             */
+/*   Updated: 2018/12/03 14:26:35 by jbarment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putnstr(char const *str, size_t size)
-{
-	size_t	i;
+#include "dlist.h"
 
-	i = 0;
-	while (str && *str && i < size)
-	{
-		write(1, str++, 1);
-		i++;
-	}
+void	update_mem_dlist(t_dlist *node)
+{
+	(node->mem)[0] = (void*)node->str;
 }
